@@ -14,12 +14,12 @@ export default class Command extends BaseCommand {
 
     run = async (M: ISimplifiedMessage): Promise<void> => {
         const n = [
-            './assets/Rin/rin-smile.mp4'
+            './assets/kacchan-mean.mp4'
         ]
-        let rin = n[Math.floor(Math.random() * n.length)]
-        return void this.client.sendMessage(M.from, { url: rin }, MessageType.video, {quoted:M.WAMessage,
+        let well = n[Math.floor(Math.random() * n.length)]
+        return void this.client.sendMessage(M.from, { url: well }, MessageType.video, {quoted:M.WAMessage,
             mimetype: Mimetype.gif,
-            caption: `𝙄𝙩'𝙨 𝙩𝙤𝙤 𝙦𝙪𝙞𝙚𝙩, 𝙔𝙤𝙪 𝙢𝙚𝙖𝙣 ${this.client.config.prefix}𝙝𝙚𝙡𝙥? \n` }
+            caption: `ᴏɪ ᴏɪ ᴏɪ~ ᴛʏᴘᴇ 💣 ${this.client.config.prefix}ᴡᴇʟʟ\n` }
         )
     }
 }
@@ -41,4 +41,4 @@ export default class Command extends BaseCommand {
            
            
            
-   
+  
