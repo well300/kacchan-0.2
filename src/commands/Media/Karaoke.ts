@@ -8,28 +8,22 @@ import yts from 'yt-search'
 export default class Command extends BaseCommand {
     constructor(client: WAClient, handler: MessageHandler) {
         super(client, handler, {
-            command: 'ytsearch',
-            description: 'Searches YT',
+            command: 'karaoke',
+            description: 'Gives you karaoke song playable on WhatsApp',
             category: 'media',
-            aliases: ['yts'],
-            usage: `${client.config.prefix}yts [term]`,
+            aliases: ['sing'],
+            usage: `${client.config.prefix}karaoke [term]`,
             baseXp: 20
         })
     }
 
     run = async (M: ISimplifiedMessage, { joined }: IParsedArgs): Promise<void> => {
-        if (!joined) return void M.reply('🔎 Provide a search term')
+        if (!joined) return void M.reply('Please provide a search term')
         const term = joined.trim()
-        const { videos } = await yts(term)
-        if (!videos || videos.length <= 0) return void M.reply(`⚓ No Matching videos found for : *${term}*`)
-        const length = videos.length < 10 ? videos.length : 10
-        let text = `🔎 *Results for ${term}*\n`
-        for (let i = 0; i < length; i++) {
-            text += `*#${i + 1}*\n📗 *Title:* ${videos[i].title}\n📕 *Channel:* ${
-                videos[i].author.name
-            }\n 📙 *Duration:* ${videos[i].duration}\n📘 *URL:* ${videos[i].url}\n\n`
-        }
-        M.reply('🎐 𝙎𝙚𝙣𝙙𝙞𝙣𝙜...')
+        const { videos } = await yts(term + ' karaoke song')
+        if (!videos || videos.length <= 0) return void M.reply(`No Matching videos found for the term *${term}*`)
+        const text = `🎐 𝙃𝙚𝙧𝙚 𝙮𝙤𝙪 𝙜𝙤 🎐`
+
         this.client
             .sendMessage(M.from, text, MessageType.extendedText, {
                 quoted: M.WAMessage,
@@ -43,6 +37,7 @@ export default class Command extends BaseCommand {
                     }
                 }
             })
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             .catch((reason: any) => M.reply(`✖  An error occurred, Reason: ${reason}`))
     }
 }

@@ -22,11 +22,11 @@ export default class Command extends BaseCommand {
         const video = new YT(M.urls[0], 'video')
         if (!video.validateURL()) return void M.reply(`Provide a Valid YT URL`)
         const { videoDetails } = await video.getInfo()
-        M.reply('👾 sending...')
+        M.reply('🎐 𝙎𝙚𝙣𝙙𝙞𝙣𝙜...')
         if (Number(videoDetails.lengthSeconds) > 1800)
             return void M.reply('⚓ Cannot download videos longer than 30 minutes')
         M.reply(await video.getBuffer(), MessageType.video).catch((reason: Error) =>
-            M.reply(`❌ an error occurred, Reason: ${reason}`)
+            M.reply(`✖ An error occurred, Reason: ${reason}`)
         )
     }
 }

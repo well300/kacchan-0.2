@@ -13,18 +13,17 @@ export default class Command extends BaseCommand {
             description: 'Downloads given spotify track and sends it as Audio',
             category: 'media',
             usage: `${client.config.prefix}spotify [URL]`,
-            dm: true,
             baseXp: 20,
             aliases: ['sp']
         })
     }
 
     run = async (M: ISimplifiedMessage): Promise<void> => {
-        if (!M.urls.length) return void M.reply(`Please provide the Spotify Track URL that you want to download`)
+        if (!M.urls.length) return void M.reply(`🔎 Provide the Spotify Track URL that you want to download`)
         const url = M.urls[0]
         const track = new Spotify(url)
         const info = await track.getInfo()
-        if (info.error) return void M.reply(`Error Fetching: ${url}. Check if the url is valid and try again`)
+        if (info.error) return void M.reply(`⚓ Error Fetching: ${url}. Check if the url is valid and try again`)
         const caption = `🎧 *Title:* ${info.name || ''}\n🎤 *Artists:* ${(info.artists || []).join(',')}\n💽 *Album:* ${
             info.album_name
         }\n📆 *Release Date:* ${info.release_date || ''}`
@@ -34,7 +33,11 @@ export default class Command extends BaseCommand {
             undefined,
             undefined,
             caption
-        ).catch(() => M.reply(caption))
-        M.reply(await track.getAudio(), MessageType.audio)
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        ).catch((reason: any) => M.reply(`✖ An error occurred, Reason: ${reason}`))
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        M.reply(await track.getAudio(), MessageType.audio).catch((reason: any) =>
+            M.reply(`✖ An error occurred, Reason: ${reason}`)
+        )
     }
 }
