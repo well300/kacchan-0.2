@@ -1,29 +1,37 @@
-import MessageHandler from '../../Handlers/MessageHandler'
-import BaseCommand from '../../lib/BaseCommand'
-import WAClient from '../../lib/WAClient'
-import { ISimplifiedMessage } from '../../typings'
+/** @format */
+
+import { MessageType, Mimetype } from "@adiwajshing/baileys";
+import MessageHandler from "../../Handlers/MessageHandler";
+import BaseCommand from "../../lib/BaseCommand";
+import WAClient from "../../lib/WAClient";
+import { ISimplifiedMessage } from "../../typings";
 
 export default class Command extends BaseCommand {
-    constructor(client: WAClient, handler: MessageHandler) {
-        super(client, handler, {
-            command: 'mods',
-            description: "Displays the Moderators' contact info",
-            category: 'general',
+	constructor(client: WAClient, handler: MessageHandler) {
+		super(client, handler, {
+			command: "mods",
+			description: "Generally used to check if bot is Up",
+			category: "general",
             usage: `${client.config.prefix}mods`,
-            aliases: ['moderators', 'mod', 'owner']
-        })
-    }
+            dm: true,
+            aliases: ['moderators', 'mod', 'owner'],
+		});
+	}
 
-    run = async (M: ISimplifiedMessage): Promise<void> => {
-        if (!this.client.config.mods || !this.client.config.mods[0]) return void M.reply('*[UNMODERATED]*')
-        const filteredMap = this.client.config.mods.map((mod) => this.client.getContact(mod)).filter((user) => user)
-        let text = '🍥 *Moderators* 🍥\n\n'
-        filteredMap.forEach(
-            (user, index) =>
-                (text += `#${index + 1}\n🎫 *Username: ${
-                    user.notify || user.vname || user.name || 'null'
-                }*\n🍀 *Contact: https://wa.me/+${user?.jid?.split('@')[0]}*\n\n`)
-        )
-        return void M.reply(text)
-    }
+	run = async (M: ISimplifiedMessage): Promise<void> => {
+		const kacchan =
+			"https://c.tenor.com/iv8N2t7pEXAAAAPo/bakugou-katsuki-anime.mp4";
+			"https://c.tenor.com/93eUTFPXSyYAAAPo/bakugo-my-hero-academia.mp4";
+			"https://c.tenor.com/LhRhrogP7WgAAAPo/bakugou-katsuki-bakugou.mp4";
+		return void this.client.sendMessage(
+			M.from,
+			{ url: kacchan },
+			MessageType.video,
+			{
+				quoted: M.WAMessage,
+				mimetype: Mimetype.gif,
+				caption: `🎗 ᴍᴏᴅᴇʀᴀᴛᴏʀꜱ \n╰• ᴄᴏɴᴛᴀᴄᴛ💣: wa.me/917842346461?text=𝙝𝙚𝙡𝙡𝙤`,
+			}
+		);
+	};
 }
