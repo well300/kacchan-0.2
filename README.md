@@ -19,7 +19,7 @@ A Fully Modular and Efficient Bot <br>
 <div align="left">
 <br/>
 
-## ✨ Highlights
+## ✨ Highlights.
 
 -   Fully Modular Design
 -   Object Oriented
