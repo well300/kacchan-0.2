@@ -31,7 +31,6 @@ export default class Command extends BaseCommand {
 				caption: `- 🄴🄳🅄🄲🄰🅃🄸🅅🄴 🎐
 
 🎗 ${this.client.config.prefix}𝙘𝙖𝙡𝙘𝙪𝙡𝙖𝙩𝙤𝙧 
-🎗 ${this.client.config.prefix}𝙘𝙧𝙮𝙥𝙩𝙤 
 🎗 ${this.client.config.prefix}𝙚𝙡𝙚𝙢𝙚𝙣𝙩 
 🎗 ${this.client.config.prefix}𝙩𝙧𝙞𝙫𝙞𝙖 
 🎗 ${this.client.config.prefix}𝙪𝙧𝙗𝙖𝙣𝙙𝙞𝙘𝙩𝙞𝙤𝙣𝙖𝙧𝙮 
