@@ -12,7 +12,7 @@
   
 A Fully Modular and Efficient Bot <br>
   
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/well300/kacchan/blob/main)
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/well300/kacchan-0.2/blob/main)
 
 
 
