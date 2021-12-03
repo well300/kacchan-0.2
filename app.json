@@ -1,5 +1,5 @@
 {
-  "name": "kacchan",
+  "name": "kacchan-0.2",
   "description": "A WhatsApp Bot With Rich Anime Features.",
   "keywords": [
       "bot",
@@ -14,8 +14,10 @@
   "repository": "https://github.com/well300/kacchan-0.2.git",
   "logo": "https://i.pinimg.com/originals/ed/92/51/ed92517bc5c4f28eb21bab0202c3e264.jpg",
   "success_url": "/",
-  "env": {
-           "description": "Prefix of your bot"
+   "env": {
+        "PREFIX": {
+            "description": "Prefix of your bot",
+            "value": "!"
         },
         "SESSION": {
             "description": "A string for the session to be classified and to get access to the server endpoints"
