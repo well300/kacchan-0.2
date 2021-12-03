@@ -11,7 +11,7 @@
       "whatsapp-sticker-bot",
       "whatsapp-botto"
   ],
-  "repository": "https://github.com/well300/kacchan",
+  "repository": "https://github.com/well300/kacchan-0.2",
   "logo": "https://i.pinimg.com/originals/ed/92/51/ed92517bc5c4f28eb21bab0202c3e264.jpg",
   "success_url": "/",
   "env": {
